@@ -57,7 +57,7 @@
             }
 
             #myOscillator{
-                width: 100%;
+                width: 98%;
                 height: 290px;
                 background-color: #40921c;
                 moz-border-radius: 12px;
@@ -71,14 +71,14 @@
         <!-- -------------------------------------------------------------------------------------- -->
         <!--                                    O S C I L L A T O R                                 -->
         <!-- -------------------------------------------------------------------------------------- -->
-        <div style="text-align: center;padding-top: 50px" >
-            <table style="width:100%;border-width: medium" align="center">
+        <div style="text-align: center;padding-top: 50px; background-color: #000000; height: 800px; width: 100%;" >
+            <table style="width:100%;border-width: medium;" align="center">
                 <tr>
                     <td>
                         <table>
                             <tr>
                                 <td >
-                                    <div id="myOscillator" style="font-size: 30px; text-space: none; alignment: top; position: absolute; top:0px; left: 0px;">
+                                    <div id="myOscillator" style="font-size: 30px; text-space: none; alignment: top; position: absolute; top:10px; left: 0px;">
                                         <div id="checkoutbutton" style="position: absolute; top:10px; left: 10px; z-index: 100;font-size: 30px;">
                                             OCTAVE&nbsp;&nbsp;&nbsp;
                                             <button id='1btnOctDown'  style="font-size: 25px; width: 40px; background-color: #a6b779" onclick="octDOWN('1btnOctDown')">D</button>
@@ -100,7 +100,7 @@
                                             &nbsp;
                                             <button id='1btnDefault' style="font-size: 15px; font-weight: bold; width: 100px; background-color: #a6b779" onclick="paramDefault()">DEFAULT</button>
                                         </div>
-                                        <div id="divpiano" style="position: absolute; top:140px; left: 10px; z-index: 100; width: 1024px;">
+                                        <div id="divpiano" style="position: absolute; top:140px; left: 10px; z-index: 100; width: 100%;">
                                             <div id="n0" style="position: absolute; top:0px; left: 0px; z-index: 50;">
                                                 <button id='1btn0'  style="font-size: 30px; width: 20px;height: 150px; background-color: #F8F8F8; color: #000000;"></button>
                                             </div>
@@ -180,6 +180,7 @@
 
 
         <script type="text/javascript" src="js/audio_oscillator.js"></script>
+        <script type="text/javascript" src="js/pantalla.js"></script>
 
     </body>
 </html>
