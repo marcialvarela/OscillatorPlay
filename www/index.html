@@ -37,7 +37,7 @@
             }
 
             #checkoutbutton {
-                width: 480px;
+                width: 97%;
                 height: 38px;
                 background-color: #33FF00;
                 moz-border-radius: 16px;
@@ -47,7 +47,7 @@
             }
 
             #checkoutbutton1 {
-                width: 480px;
+                width: 97%;
                 height: 38px;
                 background-color: #49bb1d;
                 moz-border-radius: 16px;
@@ -57,7 +57,7 @@
             }
 
             #myOscillator{
-                width: 505px;
+                width: 100%;
                 height: 290px;
                 background-color: #40921c;
                 moz-border-radius: 12px;
@@ -68,137 +68,117 @@
 
         </style>
 
-        <div id="nOriginal" style="position: absolute; top:0px; left: 0px; z-index: 100; visibility: hidden;">
-            <div id="controls" style="font-size: 30px">
-                CONTROLES
-                <br />
-                <button id='btnReproducir'  style="font-size: 30px; width: 350px;" onclick="reproducirFrecuencia()">Reproducir Frecuencia</button>
-                <br />
-                <button id='btnDetener' style="font-size: 30px; width: 350px;"   onclick="detenerFrecuencia()">Detener Frecuencia</button>
-                <br />
-                <button id='btnOctUp'  style="font-size: 30px; width: 350px;" onclick="subirOctava()">Subir Octava</button>
-                <br />
-                <button id='btnOctDown'  style="font-size: 30px; width: 350px;" onclick="bajarOctava()">Bajar Octava</button>
-            </div>
-            <div id="tipos" style="font-size: 30px">
-                TIPOS
-                <br />
-                <button id='sino'  style="font-size: 30px; width: 350px;" onclick="sine()">Onda sinusoidal</button>
-                <br />
-                <button id='square'  style="font-size: 30px; width: 350px;" onclick="square()">Onda cuadrada</button>
-                <br />
-                <button id='triangle'  style="font-size: 30px; width: 350px;" onclick="triangle()">Onda triangular</button>
-                <br />
-                <button id='sawtooth'  style="font-size: 30px; width: 350px;" onclick="sawtooth()">Onda de sierra</button>
-                <br />
-                <button id='custom'  style="font-size: 30px; width: 350px;" onclick="custom()">Onda personalizada</button>
-                <br />
-                <br />
-                <button id='reverbBtn'  style="font-size: 30px; width: 350px;" onclick="reverb()">REVERB example</button>
-                <br />
-                <br />
-            </div>
-        </div>
-        <br />
-
-
-
-
         <!-- -------------------------------------------------------------------------------------- -->
         <!--                                    O S C I L L A T O R                                 -->
         <!-- -------------------------------------------------------------------------------------- -->
+        <div style="text-align: center;padding-top: 50px" >
+            <table style="width:100%;border-width: medium" align="center">
+                <tr>
+                    <td>
+                        <table>
+                            <tr>
+                                <td >
+                                    <div id="myOscillator" style="font-size: 30px; text-space: none; alignment: top; position: absolute; top:0px; left: 0px;">
+                                        <div id="checkoutbutton" style="position: absolute; top:10px; left: 10px; z-index: 100;font-size: 30px;">
+                                            OCTAVE&nbsp;&nbsp;&nbsp;
+                                            <button id='1btnOctDown'  style="font-size: 25px; width: 40px; background-color: #a6b779" onclick="octDOWN('1btnOctDown')">D</button>
+                                            <!--<span id="octNumber_lbl" >0</span>-->
+                                            <label id="Volume" for="Volume" style="font-size: 24px; font-weight: bold;">&nbsp;0&nbsp;</label>
+                                            <button id='1btnOctUp' style="font-size: 25px; width: 40px; background-color: #a6b779" onclick="octUP('1btnOctUp')">U</button>
+                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                            <button id='1btnOnOff'  style="font-size: 25px; width: 40px; background-color: gray;" class="checkoutbutton" onclick="onOff();" >IO</button>
+                                        </div>
+                                        <div id="checkoutbutton1" style="position: absolute; top:68px; left: 10px; z-index: 100;">
+                                            WAVE&nbsp;&nbsp;
+                                            <button id='1sino'  style="font-size: 25px; width: 40px; background-color: #FFEE00" onclick="sine('1sino')">S</button>
+                                            &nbsp;
+                                            <button id='1square'  style="font-size: 25px; width: 40px; background-color: #a6b779" onclick="square('1square')">Q</button>
+                                            &nbsp;
+                                            <button id='1triangle'  style="font-size: 25px; width: 40px; background-color: #a6b779" onclick="triangle('1triangle')">T</button>
+                                            &nbsp;
+                                            <button id='1sawtooth'  style="font-size: 25px; width: 40px; background-color: #a6b779" onclick="sawtooth('1sawtooth')">W</button>
+                                            &nbsp;
+                                            <button id='1btnDefault' style="font-size: 15px; font-weight: bold; width: 100px; background-color: #a6b779" onclick="paramDefault()">DEFAULT</button>
+                                        </div>
+                                        <div id="divpiano" style="position: absolute; top:140px; left: 10px; z-index: 100; width: 1024px;">
+                                            <div id="n0" style="position: absolute; top:0px; left: 0px; z-index: 50;">
+                                                <button id='1btn0'  style="font-size: 30px; width: 20px;height: 150px; background-color: #F8F8F8; color: #000000;"></button>
+                                            </div>
+                                            <div id="n1" style="position: absolute; top:0px; left: 5px; z-index: 100;">
+                                                <button id='1btnA31' style="font-size: 30px; width: 40px;height: 85px;  background-color: #333333; color: #F8F8F8;" onmouseover="playFreq(233.165);" onmouseout="stopFreq()"></button>
+                                            </div>
+                                            <div id="n2" style="position: absolute; top:0px; left: 20px; z-index: 50;">
+                                                <button id='1btnB3'  style="font-size: 30px; width: 50px;height: 150px; background-color: #F8F8F8; color: #000000;" onmouseover="playFreq(247.030);" onmouseout="stopFreq()"></button>
+                                            </div>
+                                            <div id="n3" style="position: absolute; top:0px; left: 70px; z-index: 50;">
+                                                <button id='1btnC4'  style="font-size: 30px; width: 50px;height: 150px; background-color: #F8F8F8; color: #000000;" onmouseover="playFreq(261.686);" onmouseout="stopFreq()"></button>
+                                            </div>
+                                            <div id="n4" style="position: absolute; top:0px; left: 90px; z-index: 100;">
+                                                <button id='1btnC41' style="font-size: 30px; width: 40px;height: 85px;  background-color: #333333; color: #F8F8F8;" onmouseover="playFreq(277.262);" onmouseout="stopFreq()"></button>
+                                            </div>
+                                            <div id="n5" style="position: absolute; top:0px; left: 120px; z-index: 50;">
+                                                <button id='1btnD4'  style="font-size: 30px; width: 50px;height: 150px; background-color: #F8F8F8; color: #000000;" onmouseover="playFreq(293.724);" onmouseout="stopFreq()"></button>
+                                            </div>
+                                            <div id="n6" style="position: absolute; top:0px; left: 150px; z-index: 100;">
+                                                <button id='1btnD41' style="font-size: 30px; width: 40px;height: 85px;  background-color: #333333; color: #F8F8F8;" onmouseover="playFreq(311.194);" onmouseout="stopFreq()"></button>
+                                            </div>
+                                            <div id="n7" style="position: absolute; top:0px; left: 170px; z-index: 50;">
+                                                <button id='1btnE4'  style="font-size: 30px; width: 50px;height: 150px; background-color: #F8F8F8; color: #000000;" onmouseover="playFreq(329.089);" onmouseout="stopFreq()"></button>
+                                            </div>
+                                            <div id="n8" style="position: absolute; top:0px; left: 220px; z-index: 50;">
+                                                <button id='1btnF4'  style="font-size: 30px; width: 50px;height: 150px; background-color: #F8F8F8; color: #000000;" onmouseover="playFreq(349.309);" onmouseout="stopFreq()"></button>
+                                            </div>
+                                            <div id="n9" style="position: absolute; top:0px; left: 240px; z-index: 100;">
+                                                <button id='1btnF41' style="font-size: 30px; width: 40px;height: 85px;  background-color: #333333; color: #F8F8F8;" onmouseover="playFreq(370.081);" onmouseout="stopFreq()"></button>
+                                            </div>
+                                            <div id="n10" style="position: absolute; top:0px; left: 270px; z-index: 50;">
+                                                <button id='1btnG4'  style="font-size: 30px; width: 50px;height: 150px; background-color: #F8F8F8; color: #000000;" onmouseover="playFreq(392.089);" onmouseout="stopFreq()"></button>
+                                            </div>
+                                            <div id="n11" style="position: absolute; top:0px; left: 300px; z-index: 100;">
+                                                <button id='1btnG41' style="font-size: 30px; width: 40px;height: 85px;  background-color: #333333; color: #F8F8F8;" onmouseover="playFreq(415.413);" onmouseout="stopFreq()"></button>
+                                            </div>
+                                            <div id="n12" style="position: absolute; top:0px; left: 320px; z-index: 50;">
+                                                <button id='1btnA4'  style="font-size: 30px; width: 50px;height: 150px; background-color: #F8F8F8; color: #000000;" onmouseover="playFreq(440.000);" onmouseout="stopFreq()"></button>
+                                            </div>
+                                            <div id="n13" style="position: absolute; top:0px; left: 360px; z-index: 100;">
+                                                <button id='1btnA41' style="font-size: 30px; width: 40px;height: 85px;  background-color: #333333; color: #F8F8F8;" onmouseover="playFreq(466.150);" onmouseout="stopFreq()"></button>
+                                            </div>
+                                            <div id="n14" style="position: absolute; top:0px; left: 370px; z-index: 50;">
+                                                <button id='1btnB4'  style="font-size: 30px; width: 50px;height: 150px; background-color: #F8F8F8; color: #000000;" onmouseover="playFreq(493.858);" onmouseout="stopFreq()"></button>
+                                            </div>
+                                            <div id="n15" style="position: absolute; top:0px; left: 420px; z-index: 50;">
+                                                <button id='2btnC4'  style="font-size: 30px; width: 50px;height: 150px; background-color: #F8F8F8; color: #000000;" onmouseover="playFreq(523.225);" onmouseout="stopFreq()"></button>
+                                            </div>
+                                            <div id="n16" style="position: absolute; top:0px; left: 440px; z-index: 100;">
+                                                <button id='2btnC41' style="font-size: 30px; width: 40px;height: 85px;  background-color: #333333; color: #F8F8F8;" onmouseover="playFreq(554.323);" onmouseout="stopFreq()"></button>
+                                            </div>
+                                            <div id="n100" style="position: absolute; top:0px; left: 470px; z-index: 50;">
+                                                <button id='1btn100'  style="font-size: 30px; width: 25px;height: 150px; background-color: #F8F8F8; color: #000000;"></button>
+                                            </div>
+                                            <!--
+                                            <button id='2btnD4'  style="font-size: 30px; width: 50px;height: 150px; background-color: #F8F8F8; color: #000000;" onmouseover="playFreq(587.275);" onmouseout="stopFreq()">D</button>
+                                            <button id='2btnD41' style="font-size: 30px; width: 50px;height: 50px;  background-color: #333333; color: #F8F8F8;" onmouseover="playFreq(622.207);" onmouseout="stopFreq()">D#</button>
+                                            <button id='2btnE4'  style="font-size: 30px; width: 50px;height: 150px; background-color: #F8F8F8; color: #000000;" onmouseover="playFreq(659.187);" onmouseout="stopFreq()">E</button>
+                                            <button id='2btnF4'  style="font-size: 30px; width: 50px;height: 150px; background-color: #F8F8F8; color: #000000;" onmouseover="playFreq(698.376);" onmouseout="stopFreq()">F</button>
+                                            <button id='2btnF41' style="font-size: 30px; width: 50px;height: 50px;  background-color: #333333; color: #F8F8F8;" onmouseover="playFreq(739.915);" onmouseout="stopFreq()">F#</button>
+                                            <button id='2btnG4'  style="font-size: 30px; width: 50px;height: 150px; background-color: #F8F8F8; color: #000000;" onmouseover="playFreq(783.884);" onmouseout="stopFreq()">G</button>
+                                            <button id='2btnG41' style="font-size: 30px; width: 50px;height: 50px;  background-color: #333333; color: #F8F8F8;" onmouseover="playFreq(830.491);" onmouseout="stopFreq()">G#</button>
+                                            <button id='2btnA4'  style="font-size: 30px; width: 50px;height: 150px; background-color: #F8F8F8; color: #000000;" onmouseover="playFreq(880.000);" onmouseout="stopFreq()">A</button>
+                                            <button id='2btnA41' style="font-size: 30px; width: 50px;height: 50px;  background-color: #333333; color: #F8F8F8;" onmouseover="playFreq(932.186);" onmouseout="stopFreq()">A#</button>
+                                            <button id='2btnB4'  style="font-size: 30px; width: 50px;height: 150px; background-color: #F8F8F8; color: #000000;" onmouseover="playFreq(987.609);" onmouseout="stopFreq()">B</button>
+                                            -->
+                                        </div>
+                                    </div>
 
-        <div id="myOscillator" style="font-size: 30px; text-space: none; alignment: top; position: absolute; top:0px; left: 0px;">
-            <div id="checkoutbutton" style="position: absolute; top:10px; left: 10px; z-index: 100;font-size: 30px;">
-                OCTAVE&nbsp;&nbsp;&nbsp;
-                <button id='1btnOctDown'  style="font-size: 25px; width: 40px; background-color: #a6b779" onclick="octDOWN('1btnOctDown')">D</button>
-                <!--<span id="octNumber_lbl" >0</span>-->
-                <label id="Volume" for="Volume" style="font-size: 24px; font-weight: bold;">&nbsp;0&nbsp;</label>
-                <button id='1btnOctUp' style="font-size: 25px; width: 40px; background-color: #a6b779" onclick="octUP('1btnOctUp')">U</button>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <button id='1btnOnOff'  style="font-size: 25px; width: 40px; background-color: gray;" class="checkoutbutton" onclick="onOff();" >IO</button>
-            </div>
-            <div id="checkoutbutton1" style="position: absolute; top:68px; left: 10px; z-index: 100;">
-                WAVE&nbsp;&nbsp;
-                <button id='1sino'  style="font-size: 25px; width: 40px; background-color: #FFEE00" onclick="sine('1sino')">S</button>
-                &nbsp;
-                <button id='1square'  style="font-size: 25px; width: 40px; background-color: #a6b779" onclick="square('1square')">Q</button>
-                &nbsp;
-                <button id='1triangle'  style="font-size: 25px; width: 40px; background-color: #a6b779" onclick="triangle('1triangle')">T</button>
-                &nbsp;
-                <button id='1sawtooth'  style="font-size: 25px; width: 40px; background-color: #a6b779" onclick="sawtooth('1sawtooth')">W</button>
-                &nbsp;
-                <button id='1btnDefault' style="font-size: 15px; font-weight: bold; width: 100px; background-color: #a6b779" onclick="paramDefault()">DEFAULT</button>
-            </div>
-            <div id="divpiano" style="position: absolute; top:140px; left: 10px; z-index: 100; width: 1024px;">
-                <div id="n0" style="position: absolute; top:0px; left: 0px; z-index: 50;">
-                    <button id='1btn0'  style="font-size: 30px; width: 20px;height: 150px; background-color: #F8F8F8; color: #000000;"></button>
-                </div>
-                <div id="n1" style="position: absolute; top:0px; left: 5px; z-index: 100;">
-                    <button id='1btnA31' style="font-size: 30px; width: 40px;height: 85px;  background-color: #333333; color: #F8F8F8;" onmouseover="playFreq(233.165);" onmouseout="stopFreq()"></button>
-                </div>
-                <div id="n2" style="position: absolute; top:0px; left: 20px; z-index: 50;">
-                    <button id='1btnB3'  style="font-size: 30px; width: 50px;height: 150px; background-color: #F8F8F8; color: #000000;" onmouseover="playFreq(247.030);" onmouseout="stopFreq()"></button>
-                </div>
-                <div id="n3" style="position: absolute; top:0px; left: 70px; z-index: 50;">
-                    <button id='1btnC4'  style="font-size: 30px; width: 50px;height: 150px; background-color: #F8F8F8; color: #000000;" onmouseover="playFreq(261.686);" onmouseout="stopFreq()"></button>
-                </div>
-                <div id="n4" style="position: absolute; top:0px; left: 90px; z-index: 100;">
-                    <button id='1btnC41' style="font-size: 30px; width: 40px;height: 85px;  background-color: #333333; color: #F8F8F8;" onmouseover="playFreq(277.262);" onmouseout="stopFreq()"></button>
-                </div>
-                <div id="n5" style="position: absolute; top:0px; left: 120px; z-index: 50;">
-                    <button id='1btnD4'  style="font-size: 30px; width: 50px;height: 150px; background-color: #F8F8F8; color: #000000;" onmouseover="playFreq(293.724);" onmouseout="stopFreq()"></button>
-                </div>
-                <div id="n6" style="position: absolute; top:0px; left: 150px; z-index: 100;">
-                    <button id='1btnD41' style="font-size: 30px; width: 40px;height: 85px;  background-color: #333333; color: #F8F8F8;" onmouseover="playFreq(311.194);" onmouseout="stopFreq()"></button>
-                </div>
-                <div id="n7" style="position: absolute; top:0px; left: 170px; z-index: 50;">
-                    <button id='1btnE4'  style="font-size: 30px; width: 50px;height: 150px; background-color: #F8F8F8; color: #000000;" onmouseover="playFreq(329.089);" onmouseout="stopFreq()"></button>
-                </div>
-                <div id="n8" style="position: absolute; top:0px; left: 220px; z-index: 50;">
-                    <button id='1btnF4'  style="font-size: 30px; width: 50px;height: 150px; background-color: #F8F8F8; color: #000000;" onmouseover="playFreq(349.309);" onmouseout="stopFreq()"></button>
-                </div>
-                <div id="n9" style="position: absolute; top:0px; left: 240px; z-index: 100;">
-                    <button id='1btnF41' style="font-size: 30px; width: 40px;height: 85px;  background-color: #333333; color: #F8F8F8;" onmouseover="playFreq(370.081);" onmouseout="stopFreq()"></button>
-                </div>
-                <div id="n10" style="position: absolute; top:0px; left: 270px; z-index: 50;">
-                    <button id='1btnG4'  style="font-size: 30px; width: 50px;height: 150px; background-color: #F8F8F8; color: #000000;" onmouseover="playFreq(392.089);" onmouseout="stopFreq()"></button>
-                </div>
-                <div id="n11" style="position: absolute; top:0px; left: 300px; z-index: 100;">
-                    <button id='1btnG41' style="font-size: 30px; width: 40px;height: 85px;  background-color: #333333; color: #F8F8F8;" onmouseover="playFreq(415.413);" onmouseout="stopFreq()"></button>
-                </div>
-                <div id="n12" style="position: absolute; top:0px; left: 320px; z-index: 50;">
-                    <button id='1btnA4'  style="font-size: 30px; width: 50px;height: 150px; background-color: #F8F8F8; color: #000000;" onmouseover="playFreq(440.000);" onmouseout="stopFreq()"></button>
-                </div>
-                <div id="n13" style="position: absolute; top:0px; left: 360px; z-index: 100;">
-                    <button id='1btnA41' style="font-size: 30px; width: 40px;height: 85px;  background-color: #333333; color: #F8F8F8;" onmouseover="playFreq(466.150);" onmouseout="stopFreq()"></button>
-                </div>
-                <div id="n14" style="position: absolute; top:0px; left: 370px; z-index: 50;">
-                    <button id='1btnB4'  style="font-size: 30px; width: 50px;height: 150px; background-color: #F8F8F8; color: #000000;" onmouseover="playFreq(493.858);" onmouseout="stopFreq()"></button>
-                </div>
-                <div id="n15" style="position: absolute; top:0px; left: 420px; z-index: 50;">
-                    <button id='2btnC4'  style="font-size: 30px; width: 50px;height: 150px; background-color: #F8F8F8; color: #000000;" onmouseover="playFreq(523.225);" onmouseout="stopFreq()"></button>
-                </div>
-                <div id="n16" style="position: absolute; top:0px; left: 440px; z-index: 100;">
-                    <button id='2btnC41' style="font-size: 30px; width: 40px;height: 85px;  background-color: #333333; color: #F8F8F8;" onmouseover="playFreq(554.323);" onmouseout="stopFreq()"></button>
-                </div>
-                <div id="n100" style="position: absolute; top:0px; left: 470px; z-index: 50;">
-                    <button id='1btn100'  style="font-size: 30px; width: 25px;height: 150px; background-color: #F8F8F8; color: #000000;"></button>
-                </div>
-                <!--
-                <button id='2btnD4'  style="font-size: 30px; width: 50px;height: 150px; background-color: #F8F8F8; color: #000000;" onmouseover="playFreq(587.275);" onmouseout="stopFreq()">D</button>
-                <button id='2btnD41' style="font-size: 30px; width: 50px;height: 50px;  background-color: #333333; color: #F8F8F8;" onmouseover="playFreq(622.207);" onmouseout="stopFreq()">D#</button>
-                <button id='2btnE4'  style="font-size: 30px; width: 50px;height: 150px; background-color: #F8F8F8; color: #000000;" onmouseover="playFreq(659.187);" onmouseout="stopFreq()">E</button>
-                <button id='2btnF4'  style="font-size: 30px; width: 50px;height: 150px; background-color: #F8F8F8; color: #000000;" onmouseover="playFreq(698.376);" onmouseout="stopFreq()">F</button>
-                <button id='2btnF41' style="font-size: 30px; width: 50px;height: 50px;  background-color: #333333; color: #F8F8F8;" onmouseover="playFreq(739.915);" onmouseout="stopFreq()">F#</button>
-                <button id='2btnG4'  style="font-size: 30px; width: 50px;height: 150px; background-color: #F8F8F8; color: #000000;" onmouseover="playFreq(783.884);" onmouseout="stopFreq()">G</button>
-                <button id='2btnG41' style="font-size: 30px; width: 50px;height: 50px;  background-color: #333333; color: #F8F8F8;" onmouseover="playFreq(830.491);" onmouseout="stopFreq()">G#</button>
-                <button id='2btnA4'  style="font-size: 30px; width: 50px;height: 150px; background-color: #F8F8F8; color: #000000;" onmouseover="playFreq(880.000);" onmouseout="stopFreq()">A</button>
-                <button id='2btnA41' style="font-size: 30px; width: 50px;height: 50px;  background-color: #333333; color: #F8F8F8;" onmouseover="playFreq(932.186);" onmouseout="stopFreq()">A#</button>
-                <button id='2btnB4'  style="font-size: 30px; width: 50px;height: 150px; background-color: #F8F8F8; color: #000000;" onmouseover="playFreq(987.609);" onmouseout="stopFreq()">B</button>
-                -->
-            </div>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
         </div>
+
+
         <script type="text/javascript" src="js/audio_oscillator.js"></script>
 
     </body>
